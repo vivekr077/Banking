@@ -1,36 +1,121 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Horizon - Banking Application
+
+A modern banking application built with Next.js that allows users to connect multiple bank accounts, view transactions, and transfer funds between users.
+
+## Tech Stack
+
+- **Frontend**: Next.js 14, TypeScript, Tailwind CSS
+- **Backend**: Appwrite (Database & Authentication)
+- **Banking Integration**: Plaid API
+- **Payment Processing**: Dwolla
+- **UI Components**: ShadCN/UI
+- **Charts**: Chart.js
+
+## Features
+
+- 🔐 Secure authentication with Appwrite
+- 🏦 Connect multiple bank accounts via Plaid
+- 💰 Real-time transaction monitoring
+- 📊 Financial analytics and spending insights
+- 💸 Peer-to-peer money transfers
+- 📱 Responsive design for all devices
+- 🔄 Real-time data synchronization
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js (v18 or higher)
+- npm or yarn
+- Appwrite account
+- Plaid account
+- Dwolla account
+
+### Installation
+
+1. Clone the repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <your-repo-url>
+cd horizon
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Set up environment variables
+Create a `.env` file in the root directory with the following variables:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```env
+# Next.js
+NEXT_PUBLIC_SITE_URL=
 
-## Learn More
+# Appwrite
+NEXT_PUBLIC_APPWRITE_ENDPOINT=https://cloud.appwrite.io/v1
+NEXT_PUBLIC_APPWRITE_PROJECT=
+APPWRITE_DATABASE_ID=
+APPWRITE_USER_COLLECTION_ID=
+APPWRITE_BANK_COLLECTION_ID=
+APPWRITE_TRANSACTION_COLLECTION_ID=
+APPWRITE_SECRET=
 
-To learn more about Next.js, take a look at the following resources:
+# Plaid
+PLAID_CLIENT_ID=
+PLAID_SECRET=
+PLAID_ENV=sandbox
+PLAID_PRODUCTS=auth,transactions,identity
+PLAID_COUNTRY_CODES=US,CA
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Dwolla
+DWOLLA_KEY=
+DWOLLA_SECRET=
+DWOLLA_BASE_URL=https://api-sandbox.dwolla.com
+DWOLLA_ENV=sandbox
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+4. Run the development server
+```bash
+npm run dev
+```
 
-## Deploy on Vercel
+Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+horizon/
+├── app/                 # Next.js app directory
+├── components/          # Reusable UI components
+├── lib/                 # Utility functions and configurations
+├── types/              # TypeScript type definitions
+└── public/             # Static assets
+```
+
+## API Setup
+
+### Appwrite Configuration
+- Create a new project in Appwrite
+- Set up collections for users, banks, and transactions
+- Configure authentication settings
+
+### Plaid Integration
+- Sign up for a Plaid account
+- Get your API credentials
+- Configure webhook endpoints
+
+### Dwolla Setup
+- Create a Dwolla developer account
+- Set up webhook endpoints for transfer notifications
+- Configure customer verification settings
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+## License
+
+This project is licensed under the MIT License.
